@@ -240,9 +240,9 @@ class RepetitionCode:
         results = []
         for r in range(T):
             for i in range(d - 1):
-                syn.bitflip_ancilla(i, r)
+                syn._bitflip_ancilla(i, r)
                 results.append(syn.get_processed_results())
-                syn.bitflip_ancilla(i, r)  # undo the error
+                syn._bitflip_ancilla(i, r)  # undo the error
             for i in range(d):
                 syn.bitflip_data(i, r, True)
                 results.append(syn.get_processed_results())
