@@ -203,7 +203,7 @@ class RepetitionCode:
                         string[j] != string[j + 1]
                     )
                 # results from all other syndrome measurements then added
-                full_syndrome = full_syndrome + string[self.d :]
+                full_syndrome = full_syndrome + string[self.d:]
 
                 # changes between one syndrome and the next then calculated
                 syndrome_list = full_syndrome.split(" ")
@@ -322,7 +322,8 @@ class RepetitionCodeSyndromeGenerator:
     def get_m_ancilla(self, i, r):
         """
         Returns:
-            measurement_value: Measurement result of ancilla i in round r for the current set of errors.
+            measurement_value: Measurement result of ancilla i in round r
+            for the current set of errors.
         """
         measurement_value = self.m_anc[r][i]
         return measurement_value
@@ -332,7 +333,8 @@ class RepetitionCodeSyndromeGenerator:
         Args:
             encoded: Initial logical value of the data qubits.
         Returns:
-            measurement_value: Final measurement result of data qubit i for the current set of errors.
+            measurement_value: Final measurement result of data qubit i
+            for the current set of errors.
 
         """
         measurement_value = (self.m_fin[i] + encoded) % 2
