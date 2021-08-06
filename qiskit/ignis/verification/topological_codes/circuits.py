@@ -240,9 +240,9 @@ class RepetitionCode:
         results = []
         for r in range(T):
             for i in range(d - 1):
-                syn._bitflip_ancilla(i, r)
+                syn.bitflip_ancilla(i, r)
                 results.append(syn.get_processed_results())
-                syn._bitflip_ancilla(i, r)  # undo the error
+                syn.bitflip_ancilla(i, r)  # undo the error
             for i in range(d):
                 syn.bitflip_data(i, r, True)
                 results.append(syn.get_processed_results())
@@ -280,13 +280,13 @@ class RepetitionCodeSyndromeGenerator:
         for r in range(self.T):
             self.m_anc[r] = [0] * (self.d - 1)
 
-    def _bitflip_readout(self, i):
+    def bitflip_readout(self, i):
         """
         Introduces a bitflip error on data qubit i right before the (final) readout.
         """
         self.m_fin[i] = (self.m_fin[i] + 1) % 2
 
-    def _bitflip_ancilla(self, i, r):
+    def bitflip_ancilla(self, i, r):
         """
         Introduces a bitflip error to ancilla i in round r.
         """
